@@ -29,6 +29,9 @@ def main() -> int:
             file=sys.stderr,
         )
         return 1
+    if "\n" in text or "\r" in text:
+        print("entry must be a single line", file=sys.stderr)
+        return 1
     if text.count(".") != 1 or not text.endswith("."):
         print("entry must be a single sentence", file=sys.stderr)
         return 1
